@@ -16,7 +16,7 @@ public class Script {
          */
 
         driver.get("https://automationexercise.com/");
-        if (driver.findElement(By.cssSelector("div[class*=\"logo pull-left\"]")).isDisplayed())
+        if (driver.findElement(By.cssSelector("div[class='logo pull-left'] img")).isDisplayed())
             System.out.println("Logo Validation PASSED");
         else System.out.println("Logo Validation FAILED");
 
@@ -35,7 +35,7 @@ public class Script {
          */
 
         String[] expectedText = {" Home", " Products", " Cart", " Signup / Login", " Test Cases", " API Testing", " Video Tutorials", " Contact us"};
-        List<WebElement> headerElements = driver.findElements(By.cssSelector("ul[class='nav navbar-nav']"));
+        List<WebElement> headerElements = driver.findElements(By.cssSelector("ul[class='nav navbar-nav']>li"));
 
         for (int i = 0; i < headerElements.size(); i++) {
             System.out.println(headerElements.get(i).getText().equals(expectedText[i]));
@@ -53,7 +53,7 @@ public class Script {
         text under the email input box
          */
 
-        if (driver.findElement(By.cssSelector("div[class=\"single-widget\"]>h2")).isDisplayed())
+        if (driver.findElement(By.cssSelector("div[class='single-widget']>h2")).isDisplayed())
             System.out.println("\"SUBSCRIPTION\" h2 validation is Passed");
         else System.out.println("\"SUBSCRIPTION\" h2 validation is FAILED");
 
@@ -65,11 +65,11 @@ public class Script {
             System.out.println("\"Email\" placeholder validation is PASSED");
         else System.out.println("\"Email\" placeholder validation is FAILED");
 
-        if (driver.findElement(By.id("subscribe")).isDisplayed())
+        if (driver.findElement(By.cssSelector("form[class='searchform']>button")).isDisplayed())
             System.out.println("\"Submit arrow\" button validation is PASSED");
         else System.out.println("\"Submit arrow\" button validation is PASSED");
 
-        if (driver.findElement(By.cssSelector("div[class=\"single-widget\"] p")).isDisplayed())
+        if (driver.findElement(By.cssSelector("div[class='single-widget'] p")).isDisplayed())
             System.out.println("Text under the email input box validation is PASSED");
         else System.out.println("Text under the email input box validation is FAILED");
 
@@ -79,7 +79,7 @@ public class Script {
         Then user should see “Copyright © 2021 All rights reserved” text in the footer
          */
 
-        WebElement footer = driver.findElement(By.cssSelector(".row>p"));
+        WebElement footer = driver.findElement(By.cssSelector("div[class='footer-bottom'] p"));
         if (footer.isDisplayed()) System.out.println("Footer validation is PASSED");
         else System.out.println("Footer validation is FAILED");
 
